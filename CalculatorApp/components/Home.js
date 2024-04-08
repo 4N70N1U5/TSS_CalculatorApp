@@ -52,14 +52,16 @@ const Home = () => {
     <View style={styles.container}>
       <TextInput
         maxLength={10}
+        testID="text-input"
         value={input}
         keyboardType="number-pad"
         showSoftInputOnFocus={false}
+        onChangeText={setInput}
         style={styles.input}
       />
       <View style={styles.buttonContainer}>
         <View style={styles.row}>
-          <Button onPress={() => setInput("")} backgroundColor="gold">
+          <Button onPress={() => setInput("")} testID="ac-button" backgroundColor="gold">
             AC
           </Button>
           <Button onPress={clear} backgroundColor="gold">
