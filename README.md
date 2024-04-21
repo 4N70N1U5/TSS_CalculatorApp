@@ -19,7 +19,7 @@ Am ales sa comparam framework-urile Jest si Mocha deoarece am observat ca acesta
 
 ### Bibliografie
 
-|    | Nume autor | Prenume autor | Titlu articol online | url | Data ultimei accesări |
+|    | Nume autor | Prenume autor | Titlu articol online | URL | Data ultimei accesări |
 |----|------|---------------|----------------------|-----|-----------------------|
 |1|Felice|Sandra|Jest vs Mocha: Comparing NodeJS Unit Testing Frameworks|https://www.browserstack.com/guide/jest-vs-mocha|accesat la 09.04.2024|
 |2|Tozzi|Chris|Comprehensive Comparison for Unit Testing Tools|https://saucelabs.com/resources/blog/jest-vs-mocha|accesat la 09.04.2024|
