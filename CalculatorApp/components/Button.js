@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
 const Button = ({
   children,
   backgroundColor = "#cccccc",
@@ -29,4 +30,5 @@ const styles = StyleSheet.create({
     fontWeight: "300",
   },
 });
+
 export default Button;

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, View, TextInput, StatusBar } from "react-native";
 import Button from "./Button";
+import TextBox from "./TextBox";
+
 const Home = () => {
   const [input, setInput] = useState("");
+
   const caculate = () => {
     let actualString = "";
     for (let a of input) {
@@ -24,6 +27,7 @@ const Home = () => {
     const result = eval(actualString) + "";
     setInput(result);
   };
+
   const addOperator = (op) => {
     let exp = input;
     const last = exp.charAt(exp.length - 1);
@@ -48,17 +52,10 @@ const Home = () => {
     }
     setInput(eval(exp + "/100") + "");
   };
+
   return (
     <View style={styles.container}>
-      <TextInput
-        maxLength={10}
-        testID="text-input"
-        value={input}
-        keyboardType="number-pad"
-        showSoftInputOnFocus={false}
-        onChangeText={setInput}
-        style={styles.input}
-      />
+      <TextBox value={input} onChangeText={setInput} />
       <View style={styles.buttonContainer}>
         <View style={styles.row}>
           <Button onPress={() => setInput("")} testID="ac-button" backgroundColor="gold">
@@ -124,14 +121,6 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingTop: StatusBar.currentHeight + 20,
     width: "100%",
-  },
-  input: {
-    width: "100%",
-    height: "30%",
-    fontSize: 75,
-    textAlign: "right",
-    color: "black",
-    fontWeight: "300",
   },
   row: {
     flexDirection: "row",
