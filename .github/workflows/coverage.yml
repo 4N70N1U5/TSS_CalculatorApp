@@ -19,7 +19,7 @@ jobs:
           - name: Run tests
             working-directory: ./CalculatorApp
             run: |
-             npx jest .//components/testing/UnitTests.test.js --coverage --coverageReporters json-summary
+             npx jest ./components/testing/UnitTests.test.js --coverage --coverageReporters json-summary
 
           - name: Jest Coverage Comment
             if: github.ref == 'refs/heads/main'
