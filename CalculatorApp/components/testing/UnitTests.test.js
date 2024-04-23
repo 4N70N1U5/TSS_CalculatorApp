@@ -5,9 +5,7 @@ import Home from "../Home";
 
 // https://jestjs.io/docs/tutorial-react-native
 
-// # Functional Testing - rendering using snapshot
-
-describe("Functional Testing Suite", () => {
+describe("Unit Testing Suite", () => {
 
   test("AC Button works correctly", () => {
     const { getByTestId, getByText } = render(<Home />);
@@ -128,7 +126,7 @@ describe("Functional Testing Suite", () => {
     expect(textInput.props.value).toEqual('64.5')
   });
 
-  test("Equals button works with last character '/' ", () => {
+  test("Equals button works with last character / ", () => {
     const { getByTestId, getByText } = render(<Home />);
     const textInput = getByTestId("text-input");
 
@@ -141,7 +139,7 @@ describe("Functional Testing Suite", () => {
 
   });
 
-  test("Percent button works with last character '/' ", () => {
+  test("Percent button works with last character / ", () => {
     const { getByTestId, getByText } = render(<Home />);
     const textInput = getByTestId("text-input");
 
@@ -153,7 +151,7 @@ describe("Functional Testing Suite", () => {
     expect(textInput.props.value).toEqual('1.23')
   });
 
-  test("Plus button works with last character '/' ", () => {
+  test("Plus button works with last character / ", () => {
     const { getByTestId, getByText } = render(<Home />);
     const textInput = getByTestId("text-input");
 
