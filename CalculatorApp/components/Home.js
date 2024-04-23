@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TextInput, StatusBar } from "react-native";
+import { StyleSheet, View, StatusBar } from "react-native";
 import Button from "./Button";
 import TextBox from "./TextBox";
 
@@ -127,4 +127,5 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
   },
 });
+
 export default Home;
