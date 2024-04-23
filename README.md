@@ -1,4 +1,7 @@
 <!-- Jest Coverage Comment:Begin -->
+| Lines | Statements | Branches | Functions |
+| --- | --- | --- | --- |
+| <a href=https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/b2c1c55db817f90badad2168e9785ec5e1383489/README.md><img alt=Coverage: 25% src=https://img.shields.io/badge/Coverage-25%25-red.svg /></a><br/> | 25% (13/52) | 8.69% (2/23) | 18.18% (4/22) |
 <!-- Jest Coverage Comment:End -->
 
 
