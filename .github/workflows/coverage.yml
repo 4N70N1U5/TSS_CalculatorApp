@@ -35,7 +35,7 @@ jobs:
                 escaped_content=$(echo "${{ steps.coverageComment.outputs.summaryHtml }}")
                 echo "$escaped_content" >> temp.txt
                 sed -i '/<!-- Jest Coverage Comment:Begin -->/,/<!-- Jest Coverage Comment:End -->/ {
-                /<!-- Jest Coverage Comment:Begin -->/ {p; r temp.txt
+                /<!-- Jest Coverage Comment:Begin -->/ {p; r <(cat temp.txt)
                 }
                 /<!-- Jest Coverage Comment:End -->/ p
                 d
