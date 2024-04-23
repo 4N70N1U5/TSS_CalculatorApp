@@ -1,3 +1,5 @@
+<!-- Jest Coverage Comment:Begin -->
+<!-- Jest Coverage Comment:End -->
 # TestareaSistemelorSoftware
 ### Echipa: A18
 - Sandu Eduard Alexandru
