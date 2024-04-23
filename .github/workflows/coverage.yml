@@ -33,7 +33,11 @@ jobs:
             if: github.ref == 'refs/heads/main'
             run: |
                 escaped_content=$(echo "${{ steps.coverageComment.outputs.summaryHtml }}" | sed 's/|/\\|/g')
-                sed -i "/<!-- Jest Coverage Comment:Begin -->/,/<!-- Jest Coverage Comment:End -->/c\\<!-- Jest Coverage Comment:Begin -->\n$escaped_content\n<!-- Jest Coverage Comment:End -->" ./README.md
+                echo "<!-- Jest Coverage Comment:Begin -->" > temp.txt
+                echo "$escaped_content" >> temp.txt
+                echo "<!-- Jest Coverage Comment:End -->" >> temp.txt
+                sed -i '/<!-- Jest Coverage Comment:Begin -->/,/<!-- Jest Coverage Comment:End -->/c\cat temp.txt' ./README.md
+                rm temp.txt
           - name: Commit & Push changes in README
             if: github.ref == 'refs/heads/main'
             uses: actions-js/push@master
