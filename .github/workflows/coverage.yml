@@ -30,6 +30,7 @@ jobs:
 
           - name: Update README with Coverage HTML
             if: github.ref == 'refs/heads/main'
+            working-directory: .
             run: |
                 escaped_content=$(echo "${{ steps.coverageComment.outputs.summaryHtml }}" | sed 's/|/\\|/g')
                 echo "<!-- Jest Coverage Comment:Begin -->" >> temp.txt
