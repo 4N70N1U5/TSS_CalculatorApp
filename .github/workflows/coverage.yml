@@ -13,9 +13,11 @@ jobs:
           - uses: actions/checkout@v3
 
           - name: Install dependencies
+            working-directory: ./CalculatorApp
             run: npm ci
 
           - name: Run tests
+            working-directory: ./CalculatorApp
             run: |
              npx jest --coverage --coverageReporters json-summary
 
