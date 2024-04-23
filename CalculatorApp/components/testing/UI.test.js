@@ -4,6 +4,7 @@ import renderer from "react-test-renderer";
 import Home from "../Home";
 import Button from "../Button";
 import TextBox from "../TextBox";
+import About from "../About";
 
 describe("UI Testing Suite", () => {
   test("Text box component matches snapshot", () => {
@@ -90,5 +91,10 @@ describe("UI Testing Suite", () => {
     fireEvent.press(fourButton);
 
     expect(textBox.props.value).toEqual("1234");
+  });
+
+  test("About screen matches snapshot", () => {
+    const tree = renderer.create(<About />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

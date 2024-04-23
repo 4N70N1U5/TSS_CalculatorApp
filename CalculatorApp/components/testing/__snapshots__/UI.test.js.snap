@@ -1,5 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`UI Testing Suite About screen matches snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "fontSize": 16,
+        "margin": 10,
+      }
+    }
+  >
+     App created by zero7zero5 on GitHub 
+  </Text>
+  <Text
+    onPress={[Function]}
+    style={
+      [
+        {
+          "color": "blue",
+          "textDecorationLine": "underline",
+        },
+      ]
+    }
+  >
+    github.com/zero7zero5/React-Native-Calculator-App
+  </Text>
+</View>
+`;
+
 exports[`UI Testing Suite Button component matches snapshot 1`] = `
 <View
   accessibilityState={
