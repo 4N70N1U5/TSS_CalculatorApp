@@ -33,9 +33,7 @@ jobs:
             working-directory: .
             run: |
                 escaped_content=$(echo "${{ steps.coverageComment.outputs.summaryHtml }}")
-                echo "<!-- Jest Coverage Comment:Begin -->" >> temp.txt
                 echo "$escaped_content" >> temp.txt
-                echo "<!-- Jest Coverage Comment:End -->" >> temp.txt
                 sed -i '/<!-- Jest Coverage Comment:Begin -->/,/<!-- Jest Coverage Comment:End -->/ {
                 /<!-- Jest Coverage Comment:Begin -->/ {p; r temp.txt
                 }
