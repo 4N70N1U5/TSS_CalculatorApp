@@ -1,0 +1,49 @@
+name: 'coverage'
+on:
+    pull_request_target:
+        branches:
+            - main
+    push:
+        branches:
+            - main
+jobs:
+    coverage:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+
+          - name: Install dependencies
+            working-directory: ./CalculatorApp
+            run: npm ci
+
+          - name: Run tests
+            working-directory: ./CalculatorApp
+            run: |
+             npx jest --coverage --coverageReporters json-summary
+
+          - name: Jest Coverage Comment
+            if: github.ref == 'refs/heads/main'
+            id: coverageComment
+            uses: MishaKav/jest-coverage-comment@main
+            with: 
+                  coverage-summary-path: ./CalculatorApp/coverage/coverage-summary.json
+
+          - name: Update README with Coverage HTML
+            if: github.ref == 'refs/heads/main'
+            working-directory: .
+            run: |
+                escaped_content=$(echo "${{ steps.coverageComment.outputs.summaryHtml }}")
+                echo "$escaped_content" >> temp.txt
+                sed -i '/<!-- Jest Coverage Comment:Begin -->/,/<!-- Jest Coverage Comment:End -->/ {
+                /<!-- Jest Coverage Comment:Begin -->/ {p; r temp.txt
+                }
+                /<!-- Jest Coverage Comment:End -->/ p
+                d
+                }' ./README.md
+                rm temp.txt
+          - name: Commit & Push changes in README
+            if: github.ref == 'refs/heads/main'
+            uses: actions-js/push@master
+            with:
+              message: Update coverage in README
+              github_token: ${{ secrets.GITHUB_TOKEN }}
