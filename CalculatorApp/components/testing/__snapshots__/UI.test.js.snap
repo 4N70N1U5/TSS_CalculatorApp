@@ -1,6 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Functional Testing Suite renders correctly 1`] = `
+exports[`UI Testing Suite About screen matches snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "fontSize": 16,
+        "margin": 10,
+      }
+    }
+  >
+     App created by zero7zero5 on GitHub 
+  </Text>
+  <Text
+    onPress={[Function]}
+    style={
+      [
+        {
+          "color": "blue",
+          "textDecorationLine": "underline",
+        },
+      ]
+    }
+  >
+    github.com/zero7zero5/React-Native-Calculator-App
+  </Text>
+</View>
+`;
+
+exports[`UI Testing Suite Button component matches snapshot 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={false}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "opacity": 1,
+    }
+  }
+>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "backgroundColor": "gold",
+          "borderRadius": 40,
+          "height": 80,
+          "justifyContent": "center",
+          "width": 80,
+        },
+        {
+          "backgroundColor": "#cccccc",
+          "width": 80,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 40,
+          "fontWeight": "300",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`UI Testing Suite Home screen matches snapshot 1`] = `
 <View
   style={
     {
@@ -1301,4 +1402,23 @@ exports[`Functional Testing Suite renders correctly 1`] = `
     </View>
   </View>
 </View>
+`;
+
+exports[`UI Testing Suite Text box component matches snapshot 1`] = `
+<TextInput
+  keyboardType="number-pad"
+  maxLength={10}
+  showSoftInputOnFocus={false}
+  style={
+    {
+      "color": "black",
+      "fontSize": 75,
+      "fontWeight": "300",
+      "height": "30%",
+      "textAlign": "right",
+      "width": "100%",
+    }
+  }
+  testID="text-input"
+/>
 `;
