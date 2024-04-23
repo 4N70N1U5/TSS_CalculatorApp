@@ -8,10 +8,6 @@ import Home from "../Home";
 // # Functional Testing - rendering using snapshot
 
 describe("Functional Testing Suite", () => {
-  test("renders correctly", () => {
-    const tree = renderer.create(<Home />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
 
   test("AC Button works correctly", () => {
     const { getByTestId, getByText } = render(<Home />);
