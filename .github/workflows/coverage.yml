@@ -32,7 +32,7 @@ jobs:
             if: github.ref == 'refs/heads/main'
             working-directory: .
             run: |
-                escaped_content=$(echo "${{ steps.coverageComment.outputs.summaryHtml }}"
+                escaped_content=$(echo "${{ steps.coverageComment.outputs.summaryHtml }}")
                 echo "<!-- Jest Coverage Comment:Begin -->" >> temp.txt
                 echo "$escaped_content" >> temp.txt
                 echo "<!-- Jest Coverage Comment:End -->" >> temp.txt
