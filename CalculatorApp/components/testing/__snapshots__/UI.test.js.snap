@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UI Testing Suite Buttons render correctly 1`] = `
+exports[`UI Testing Suite Button component matches snapshot 1`] = `
 <View
   accessibilityState={
     {
@@ -65,7 +65,7 @@ exports[`UI Testing Suite Buttons render correctly 1`] = `
 </View>
 `;
 
-exports[`UI Testing Suite Home screen renders correctly 1`] = `
+exports[`UI Testing Suite Home screen matches snapshot 1`] = `
 <View
   style={
     {
@@ -1368,7 +1368,7 @@ exports[`UI Testing Suite Home screen renders correctly 1`] = `
 </View>
 `;
 
-exports[`UI Testing Suite Text box renders correctly 1`] = `
+exports[`UI Testing Suite Text box component matches snapshot 1`] = `
 <TextInput
   keyboardType="number-pad"
   maxLength={10}
