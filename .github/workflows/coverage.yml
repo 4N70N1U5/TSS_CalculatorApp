@@ -19,7 +19,7 @@ jobs:
           - name: Run tests
             working-directory: ./CalculatorApp
             run: |
-             npx jest --detectOpenHandles --forceExit --coverage --coverageReporters json-summary
+             npx jest --detectOpenHandles --forceExit --coverage --coverageReporters json-summary | tee ./coverage.txt && exit ${PIPESTATUS[0]}
              
 
           - name: Jest Coverage Comment
@@ -28,6 +28,7 @@ jobs:
             uses: MishaKav/jest-coverage-comment@main
             with: 
                   coverage-summary-path: ./CalculatorApp/coverage/coverage-summary.json
+                  coverage-path: ./coverage.txt
 
           - name: Update README with Coverage HTML
             if: github.ref == 'refs/heads/main'
