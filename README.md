@@ -9,7 +9,7 @@
 <!-- Jest Coverage Comment:Begin -->
 | Lines | Statements | Branches | Functions |
 | --- | --- | --- | --- |
-| <a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob//README.md"><img alt="Coverage: 39%" src="https://img.shields.io/badge/Coverage-39%25-red.svg" /></a><br/> | 38.98% (23/59) | 8.69% (2/23) | 40% (10/25) |
+| <a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/0cf6217894fb342a8b89ef6397915eada125d560/README.md"><img alt="Coverage: 98%" src="https://img.shields.io/badge/Coverage-98%25-brightgreen.svg" /></a><br/> | 98.3% (58/59) | 100% (23/23) | 96% (24/25) |
 
 <!-- Jest Coverage Comment:End -->
 
