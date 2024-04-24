@@ -19,7 +19,7 @@ jobs:
           - name: Run tests
             working-directory: ./CalculatorApp
             run: |
-             npx jest --detectOpenHandles --forceExit --coverage --coverageReporters json-summary | tee ./coverage.txt && exit ${PIPESTATUS[0]}
+             npx jest --coverageReporters json-summary --coverage | tee ./coverage.txt && exit ${PIPESTATUS[0]}
              
 
           - name: Jest Coverage Comment
