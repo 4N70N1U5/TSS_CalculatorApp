@@ -28,7 +28,7 @@ jobs:
             uses: MishaKav/jest-coverage-comment@main
             with: 
                   coverage-summary-path: ./CalculatorApp/coverage/coverage-summary.json
-                  coverage-path: ./coverage.txt
+                  coverage-path: ./CalculatorApp/coverage.txt
 
           - name: Update README with Coverage HTML
             if: github.ref == 'refs/heads/main'
