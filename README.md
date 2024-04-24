@@ -9,8 +9,8 @@
 <!-- Jest Coverage Comment:Begin -->
 | Lines | Statements | Branches | Functions |
 | --- | --- | --- | --- |
-| <a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/9844a53a9ef2c1e33b32f22d6424eb7df54e9e3c/README.md"><img alt="Coverage: 98%" src="https://img.shields.io/badge/Coverage-98%25-brightgreen.svg" /></a><br/> | 98.3% (58/59) | 100% (23/23) | 96% (24/25) |
-
+| <a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/5f48560c1af66f6af5aa06ab8b835f2ca0636692/README.md"><img alt="Coverage: 98%" src="https://img.shields.io/badge/Coverage-98%25-brightgreen.svg" /></a><br/> | 98.3% (58/59) | 100% (23/23) | 96% (24/25) |
+ \n <details><summary>Coverage Report (<b>98%</b>)</summary><table><tr><th>File</th><th>% Stmts</th><th>% Branch</th><th>% Funcs</th><th>% Lines</th><th>Uncovered Line #s</th></tr><tbody><tr><td><b>All files</b></td><td><b>98.3</b></td><td><b>100</b></td><td><b>96</b></td><td><b>98.27</b></td><td>&nbsp;</td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/5f48560c1af66f6af5aa06ab8b835f2ca0636692/About.js">About.js</a></td><td>75</td><td>100</td><td>50</td><td>75</td><td><a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/5f48560c1af66f6af5aa06ab8b835f2ca0636692/About.js#L10">10</a></td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/5f48560c1af66f6af5aa06ab8b835f2ca0636692/Button.js">Button.js</a></td><td>100</td><td>100</td><td>100</td><td>100</td><td>&nbsp;</td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/5f48560c1af66f6af5aa06ab8b835f2ca0636692/Home.js">Home.js</a></td><td>100</td><td>100</td><td>100</td><td>100</td><td>&nbsp;</td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/5f48560c1af66f6af5aa06ab8b835f2ca0636692/TextBox.js">TextBox.js</a></td><td>100</td><td>100</td><td>100</td><td>100</td><td>&nbsp;</td></tr></tbody></table></details>
 <!-- Jest Coverage Comment:End -->
 
 # Jest vs Mocha
