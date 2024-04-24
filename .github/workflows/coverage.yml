@@ -34,7 +34,7 @@ jobs:
             if: github.ref == 'refs/heads/main'
             working-directory: .
             run: |
-                printf '%s\n' '${{ steps.coverageComment.outputs.summaryHtml }}' > temp.txt
+                printf '%s\n' '${{ steps.coverageComment.outputs.summaryHtml }} \n ${{steps.coverageComment.outputs.coverageHtml}}' > temp.txt
                 sed -i '/<!-- Jest Coverage Comment:Begin -->/,/<!-- Jest Coverage Comment:End -->/ {
                 /<!-- Jest Coverage Comment:Begin -->/ {p; r temp.txt
                 }
