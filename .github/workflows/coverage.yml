@@ -20,6 +20,9 @@ jobs:
             working-directory: ./CalculatorApp
             run: |
              npx jest --detectOpenHandles --forceExit --coverage --coverageReporters json-summary
+            with:
+             github_token: ${{ secrets.GITHUB_TOKEN }}
+             
 
           - name: Jest Coverage Comment
             if: github.ref == 'refs/heads/main'
