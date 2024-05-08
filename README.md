@@ -1,8 +1,10 @@
-# TestareaSistemelorSoftware
+# Testarea Sistemelor Software
 ### Echipa: A18
 - Sandu Eduard Alexandru
 - Nitoi Antonio
 - Alexe Vasile Paul
+
+### Tema proiectului: **Testarea unei aplicatii mobile**
 
 # Jest Coverage Report
 
@@ -14,7 +16,9 @@
 <details><summary>Coverage Report (<b>98%</b>)</summary><table><tr><th>File</th><th>% Stmts</th><th>% Branch</th><th>% Funcs</th><th>% Lines</th><th>Uncovered Line #s</th></tr><tbody><tr><td><b>All files</b></td><td><b>98.3</b></td><td><b>100</b></td><td><b>96</b></td><td><b>98.27</b></td><td>&nbsp;</td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/e2053aa981bb4c51f990ca5b71e09df1fe616b07/About.js">About.js</a></td><td>75</td><td>100</td><td>50</td><td>75</td><td><a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/e2053aa981bb4c51f990ca5b71e09df1fe616b07/About.js#L10">10</a></td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/e2053aa981bb4c51f990ca5b71e09df1fe616b07/Button.js">Button.js</a></td><td>100</td><td>100</td><td>100</td><td>100</td><td>&nbsp;</td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/e2053aa981bb4c51f990ca5b71e09df1fe616b07/Home.js">Home.js</a></td><td>100</td><td>100</td><td>100</td><td>100</td><td>&nbsp;</td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/e2053aa981bb4c51f990ca5b71e09df1fe616b07/TextBox.js">TextBox.js</a></td><td>100</td><td>100</td><td>100</td><td>100</td><td>&nbsp;</td></tr></tbody></table></details>
 <!-- Jest Coverage Comment:End -->
 
-# Jest vs Mocha
+<br />
+
+# 1. Comparatia a 2 frameworkuri de testare - Jest vs Mocha
 Am ales sa comparam framework-urile Jest [3] si Mocha [4] deoarece am observat ca acesta este un subiect dezbatut si fac parte din cele mai comune framework-uri de javascript.
 
 | Jest | Mocha |
@@ -34,7 +38,7 @@ In ceea ce priveste testele unitare, cele 2 framework-uri au un mod de functiona
 
 #### Jest
 
-```
+```JS
 // sum.js
 function sum(a, b) {
   return a + b;
@@ -52,7 +56,7 @@ test('adds 1 + 2 to equal 3', () => {
 
 #### Mocha
 
-```
+```JS
 // sum.js
 function sum(a, b) {
   return a + b;
@@ -77,7 +81,7 @@ Testele de integrare constituie in a urmari interactiunea dintre mai multe modul
 
 #### Jest
 
-```
+```JS
 // fetchData.test.js
 import React from 'react';
 import { render, act } from '@testing-library/react';
@@ -106,7 +110,7 @@ Acest lucru face jest sa fie foarte time-consuming pentru ca ar insemna sa fie n
 
 #### Mocha
 
-```
+```JS
 // fetchData.test.js
 import { expect } from 'chai';
 import sinon from 'sinon';
@@ -147,7 +151,7 @@ Jest poate fi deseori mai usor de folosit intrucat poate simula randarea unor co
 
 #### Jest
 
-```
+```JS
 // MyButton.test.js
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
@@ -166,7 +170,7 @@ test('renders label and triggers alert on click', () => {
 
 #### Mocha
 
-```
+```JS
 // MyButton.test.js
 import React from 'react';
 import { expect } from 'chai';
@@ -199,6 +203,245 @@ describe('MyButton component', () => {
 
 Code snippets generate de ChatGPT [6] & Gemini [7]. 
 
+# 2. Testarea unei aplicatii mobile folosind un framework - Jest
+
+In procesul de testare a unei aplicatii mobile am ales o aplicatie deja implementata in React Native - o aplicatie calculator asupra careia am efectuat multiple tipuri de teste pentru a ne apropia de 100% coverage. 
+
+Mai multe detalii despre aplicatia preluata si drepturile de autor vom gasi [aici](https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/main/CalculatorApp/README.md).
+
+Aplicatia dispune de 2 ecrane: ecranul principal (Home) si pagina de About us. Acestea folosesc cateva componente extra (Textbox, Button) pe care le-am inglobat in componente separate pentru a le putea testa.
+
+<img src=".github/images/image.png" alt="drawing" width="200" height="400"/>
+<img src=".github/images/image-1.png" alt="drawing" width="200" height="400"/>
+
+### Teste unitare - Unit Testing
+
+Testele unitare au avut in vedere un coverage total pentru componenta Home - componenta cu care utilizatorul va interactiona in marea majoritate de timp. Trebuie sa ne asiguram ca prin eventuale update-uri fiecare dintre butoanele calculatorului functioneaza corect si nu exista bug-uri vizuale sau functionale
+
+Spre exemplu, pentru a testa functionalitatea butonului AC care sterge tot din casuta de input:
+
+```JS
+  test("AC Button works correctly", async () => {
+    const { getByTestId, getByText } = render(<Home />);
+    const textInput = getByTestId("text-input");
+
+    // update text input to have a number to check if it clears when pressing AC Button
+
+    await fireEvent.changeText(textInput, "4873789598275");
+
+    // get AC Button element and fire clicking event
+
+    const button = getByText("AC");
+    await fireEvent.press(button); // uncomment this line to see proper efect of test working
+
+    // Now we have to check if the content of the text input is empty
+
+    expect(textInput.props.value).toEqual('');
+
+  });
+```
+
+Sau pentru a testa functionalitatea butoanelor numerice:
+
+```JS
+  test("Number Buttons work correctly", async () => {
+    const { getByTestId, getByText } = render(<Home />);
+    const textInput = getByTestId("text-input");
+    await fireEvent.changeText(textInput, "");
+
+    const one = getByText("1");
+    await fireEvent.press(one);
+    expect(textInput.props.value).toEqual('1');
+
+    const two = getByText("2");
+    await fireEvent.press(two);
+    expect(textInput.props.value).toEqual('12');
+
+    const three = getByText("3");
+    await fireEvent.press(three);
+    expect(textInput.props.value).toEqual('123');
+
+    // ... 
+
+    const seven = getByText("7");
+    await fireEvent.press(seven);
+    expect(textInput.props.value).toEqual('7');
+
+    const eight = getByText("8");
+    await fireEvent.press(eight);
+    expect(textInput.props.value).toEqual('78');
+
+    const nine = getByText("9");
+    await fireEvent.press(nine);
+    expect(textInput.props.value).toEqual('789');
+
+    const zero = getByText("0");
+    await fireEvent.press(zero);
+    expect(textInput.props.value).toEqual('7890');
+
+    const point = getByText(".");
+    await fireEvent.press(point);
+    expect(textInput.props.value).toEqual('7890.');
+
+  });
+```
+
+### Teste de UI/Functionalitate - UI Testing
+
+Testele de UI au rolul de a asigura incarcarea corecta a componentelor aplicatiei si de plasarea fireasca in cadrul paginilor. Aceste teste compara diverse componente cu un snapshot al aplicatiei - practic, componentele sunt mockuite si convertite in JSON pentru a le compara cu codul HTML al snapshotului. 
+
+```JS
+  test("Text box component matches snapshot", () => {
+    const tree = renderer.create(<TextBox> 1234 </TextBox>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test("Button component matches snapshot", () => {
+    const tree = renderer.create(<Button />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test("Home screen matches snapshot", () => {
+    const tree = renderer.create(<Home />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+```
+
+### Rularea testelor folosind Jest
+
+In fisierul `package.json` am initializat libraria Jest astfel incat sa caute in folderul `components` testele pentru a le putea rula. 
+
+```JS
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest"
+    },
+    "testMatch": [
+      "<rootDir>/components/testing/*.test.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 10,
+        "functions": 10,
+        "lines": 10,
+        "statements": -30
+      }
+    }
+  },
+```
+
+Pentru a rula testele, folosim comanda:
+
+```
+npm test
+```
+
+### Coverage Report folosind Github Actions
+
+Pentru a obtine un coverage report automat si a rula testele odata cu orice commit/PR realizat pe branchul main, am folosit Github Actions pentru a initializa un workflow de testare automat care sa se actualizeze in timp real dupa eventuale update-uri ale aplicatiei.
+
+Acest workflow va instala pachetele necesare si va rula testele pentru a actualiza coverage-ul in fisierul `README.md` si va marca commitul corespunzator daca toate testele au fost efectuate cu succes.
+
+Acest workflow a fost configurat [aici](https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/main/.github/workflows/coverage.yml).
+
+<img src=".github/images/coverage.png" alt="drawing" width="600"/>
+<img src=".github/images/commit-mark.png" alt="drawing" width="600"/>
+
+### Raport AI - Folosirea de unelte AI pentru generarea de teste
+
+Am rugat ChatGPT [6] sa scrie cateva teste unitare pentru a testa butoanele AC / C si le vom compara cu cele scrise de noi:
+
+#### AI Generated Unit Test pentru butonul AC
+
+```JS
+
+test('AC button clears input', () => {
+    const { getByTestId, getByPlaceholderText } = render(<Home />);
+    const acButton = getByTestId('ac-button');
+    const inputField = getByPlaceholderText('Enter value');
+
+    fireEvent.press(acButton);
+
+    // aici, este mockuit butonul dar nu si inputul pentru a verifica daca textul sau este sters 
+
+    expect(inputField.props.value).toBe('');
+});
+```
+
+Am rugat si Gemini [7] sa faca acelasi lucru:
+
+```JS
+test('AC button click clears the input', () => {
+  const { getByTestId, rerender } = render(<Home input="123" />);
+  const acButton = getByTestId('ac-button');
+  fireEvent.press(acButton);
+  rerender(<Home />); // Re-render the component to reflect state change
+  const inputField = getByTestId('text-box'); // Assuming TextBox has testID
+  expect(inputField.props.value).toBe('');
+});
+
+```
+
+#### Testele noastre pentru butonul AC
+
+```JS
+  test("AC Button works correctly", async () => {
+    const { getByTestId, getByText } = render(<Home />);
+    const textInput = getByTestId("text-input");
+
+    await fireEvent.changeText(textInput, "4873789598275");
+
+    const button = getByText("AC");
+    await fireEvent.press(button); 
+
+    expect(textInput.props.value).toEqual('');
+
+  });
+```
+
+&#x2611; Dupa cum se poate observa in testul generat de ChatGPT, AI-ul a creat un test coerent ca sintaxa, insa functional vorbind butonul AC este triggeruit desi nu se afla nimic in caseta de input - acest lucru va face ca acest test sa treaca intotdeauna. In testul nostru, vom schimba textul casutei de input cu un numar pentru a verifica mai apoi daca se sterge continutul sau. Practic, in testul generat, stergand "nimic" obtinem tot "nimic", iar acest test devine inutil.
+
+&#x2612; Totusi, cel generat de Gemini este arunca o eroare - sintaxa este incorecta - noi nu avem un test id pentru elementul `Button`, si chiar daca am fi avut, gemini il acceseaza incorect prin comanda `getByTestId('ac-button');`. In plus, acesta s-a complicat prin randarea de 2 ori a componentei home cand putea sa mockuiasca strict text boxul.
+
+&#x2611; Insa, la capitolul UI Tests stau ceva mai bine, fiind destul de simple intrucat nu trebuie decat sa executam o comparatie intre 2 JSON-uri iar sintaxa Jest e destul de usoara - testele sunt identice iar ChatGPT si Gemini respecta documentatia celor de la Jest dupa care ne-am inspirat in crearea testelor [9]
+
+#### AI Generated UI Test pentru componentele Home & Button
+
+```JS
+test('Button component matches snapshot', () => {
+  const tree = renderer.create(<Button />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Home component matches snapshot', () => {
+  const tree = renderer.create(<Home />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+```
+
+#### Testele noastre de UI
+
+```JS
+ test("Button component matches snapshot", () => {
+    const tree = renderer.create(<Button />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test("Home screen matches snapshot", () => {
+    const tree = renderer.create(<Home />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+```
+
+
 ### Bibliografie
 
 |    | Nume autor | Prenume autor | Titlu articol online | URL | Data ultimei accesări |
@@ -211,3 +454,4 @@ Code snippets generate de ChatGPT [6] & Gemini [7].
 |6|-|-|OpenAI Generated Text| https://chat.openai.com | accesat la 16.04.2024|
 |7|-|-|Gemini Generated Text| https://gemini.google.com | accesat la 16.04.2024|
 |8|-|-|Sinon Testing Library Documentation|https://sinonjs.org/releases/v17/| accesat la 23.04.2024|
+|9|-|-|Jest Snapshot Testing|https://jestjs.io/docs/snapshot-testing| accesat la 8.05.2024|
