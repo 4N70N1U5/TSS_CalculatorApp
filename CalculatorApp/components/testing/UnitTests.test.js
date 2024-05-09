@@ -1,14 +1,15 @@
 import React from "react";
+import { Linking } from 'react-native';
 import { render, fireEvent } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
 import Home from "../Home";
+import About from "../About";
 
 // https://jestjs.io/docs/tutorial-react-native
 
 // # Functional Testing - rendering using snapshot
 
 describe("Unit Testing Suite", () => {
-
   test("AC Button works correctly", async () => {
     const { getByTestId, getByText } = render(<Home />);
     const textInput = getByTestId("text-input");
@@ -25,11 +26,9 @@ describe("Unit Testing Suite", () => {
     // Now we have to check if the content of the text input is empty
 
     expect(textInput.props.value).toEqual('');
-
   });
 
   test("C Button works correctly", async () => {
-
     // Same approach but different scenario - now the C Button should trim the last char 
 
     const { getByTestId, getByText } = render(<Home />);
@@ -41,7 +40,6 @@ describe("Unit Testing Suite", () => {
     await fireEvent.press(button); // uncomment this line to see proper efect of test working
 
     expect(textInput.props.value).toEqual('487378959827');
-
   });
 
   test("Percent button works correctly", async () => {
@@ -138,7 +136,6 @@ describe("Unit Testing Suite", () => {
     await fireEvent.press(button);
 
     expect(textInput.props.value).toEqual('123')
-
   });
 
   test("Percent button works with last character / ", async () => {
@@ -163,7 +160,6 @@ describe("Unit Testing Suite", () => {
     await fireEvent.press(button);
 
     expect(textInput.props.value).toEqual('123+')
-
   });
 
   test("Number Buttons work correctly", async () => {
@@ -219,6 +215,15 @@ describe("Unit Testing Suite", () => {
     const point = getByText(".");
     await fireEvent.press(point);
     expect(textInput.props.value).toEqual('7890.');
+  });
 
+  test("Link opens correctly", async () => {
+    const { getByText } = render(<About />);
+
+    const link = getByText("github.com/zero7zero5/React-Native-Calculator-App");
+
+    await fireEvent.press(link);
+
+    expect(Linking.openURL).toHaveBeenCalledWith("https://github.com/zero7zero5/React-Native-Calculator-App");
   });
 });
