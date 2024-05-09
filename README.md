@@ -8,6 +8,8 @@
 
 ### Tema proiectului: **Testarea unei aplicatii mobile**
 
+#### Prezentarea proiectului se poate gasi [aici](Presentation.pdf).
+
 # Jest Coverage Report
 
 <!-- Jest Coverage Comment:Begin -->
