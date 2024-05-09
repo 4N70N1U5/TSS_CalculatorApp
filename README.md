@@ -1,5 +1,7 @@
 # Testarea Sistemelor Software
+
 ### Echipa: A18
+
 - Sandu Eduard Alexandru
 - Nitoi Antonio
 - Alexe Vasile Paul
@@ -9,8 +11,9 @@
 # Jest Coverage Report
 
 <!-- Jest Coverage Comment:Begin -->
-| Lines | Statements | Branches | Functions |
-| --- | --- | --- | --- |
+
+| Lines                                                                                                                                                                                                                            | Statements    | Branches     | Functions   |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------ | ----------- |
 | <a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/499ace48df1a379f062301f711f6b5e5b7e51488/README.md"><img alt="Coverage: 98%" src="https://img.shields.io/badge/Coverage-98%25-brightgreen.svg" /></a><br/> | 98.3% (58/59) | 100% (23/23) | 96% (24/25) |
 
 <details><summary>Coverage Report (<b>98%</b>)</summary><table><tr><th>File</th><th>% Stmts</th><th>% Branch</th><th>% Funcs</th><th>% Lines</th><th>Uncovered Line #s</th></tr><tbody><tr><td><b>All files</b></td><td><b>98.3</b></td><td><b>100</b></td><td><b>96</b></td><td><b>98.27</b></td><td>&nbsp;</td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/499ace48df1a379f062301f711f6b5e5b7e51488/About.js">About.js</a></td><td>75</td><td>100</td><td>50</td><td>75</td><td><a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/499ace48df1a379f062301f711f6b5e5b7e51488/About.js#L10">10</a></td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/499ace48df1a379f062301f711f6b5e5b7e51488/Button.js">Button.js</a></td><td>100</td><td>100</td><td>100</td><td>100</td><td>&nbsp;</td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/499ace48df1a379f062301f711f6b5e5b7e51488/Home.js">Home.js</a></td><td>100</td><td>100</td><td>100</td><td>100</td><td>&nbsp;</td></tr><tr><td>&nbsp; &nbsp;<a href="https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/499ace48df1a379f062301f711f6b5e5b7e51488/TextBox.js">TextBox.js</a></td><td>100</td><td>100</td><td>100</td><td>100</td><td>&nbsp;</td></tr></tbody></table></details>
@@ -19,14 +22,15 @@
 <br />
 
 # 1. Comparatia a 2 frameworkuri de testare - Jest vs Mocha
+
 Am ales sa comparam framework-urile Jest [3] si Mocha [4] deoarece am observat ca acesta este un subiect dezbatut si fac parte din cele mai comune framework-uri de javascript.
 
-| Jest | Mocha |
-|------|-------|
-|Usor de instalat, configurare minimala, folosind npm|Necesita configurare mai complexa necesita instalarea unor librarii aditionale|
-|Usor de facut mocking|Nu are mocking integrat, trebuie folosite plugin-uri|
-|Este foarte popular, astfel avand multe resurse la dispozitie pentru a invata|Este specializat in javascript testing, nu neaparat ideal pentru mobile development|
-|Este mai potrivit d.p.d.v. al vitezei de rulare a testelor|Are spectru larg de librarii, este flexibil si este mai potrivit pentru proiecte mari si complexe|
+| Jest                                                                          | Mocha                                                                                             |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Usor de instalat, configurare minimala, folosind npm                          | Necesita configurare mai complexa necesita instalarea unor librarii aditionale                    |
+| Usor de facut mocking                                                         | Nu are mocking integrat, trebuie folosite plugin-uri                                              |
+| Este foarte popular, astfel avand multe resurse la dispozitie pentru a invata | Este specializat in javascript testing, nu neaparat ideal pentru mobile development               |
+| Este mai potrivit d.p.d.v. al vitezei de rulare a testelor                    | Are spectru larg de librarii, este flexibil si este mai potrivit pentru proiecte mari si complexe |
 
 ## Exemplificarea comparatiei Jest vs Mocha folosind secvente de cod
 
@@ -201,11 +205,11 @@ describe('MyButton component', () => {
 });
 ```
 
-Code snippets generate de ChatGPT [6] & Gemini [7]. 
+Code snippets generate de ChatGPT [6] & Gemini [7].
 
 # 2. Testarea unei aplicatii mobile folosind un framework - Jest
 
-In procesul de testare a unei aplicatii mobile am ales o aplicatie deja implementata in React Native - o aplicatie calculator asupra careia am efectuat multiple tipuri de teste pentru a ne apropia de 100% coverage. 
+In procesul de testare a unei aplicatii mobile am ales o aplicatie deja implementata in React Native - o aplicatie calculator asupra careia am efectuat multiple tipuri de teste pentru a ne apropia de 100% coverage.
 
 Mai multe detalii despre aplicatia preluata si drepturile de autor vom gasi [aici](https://github.com/AlexePaul/TestareaSistemelorSoftware/blob/main/CalculatorApp/README.md).
 
@@ -261,7 +265,7 @@ Sau pentru a testa functionalitatea butoanelor numerice:
     await fireEvent.press(three);
     expect(textInput.props.value).toEqual('123');
 
-    // ... 
+    // ...
 
     const seven = getByText("7");
     await fireEvent.press(seven);
@@ -288,7 +292,7 @@ Sau pentru a testa functionalitatea butoanelor numerice:
 
 ### Teste de UI/Functionalitate - UI Testing
 
-Testele de UI au rolul de a asigura incarcarea corecta a componentelor aplicatiei si de plasarea fireasca in cadrul paginilor. Aceste teste compara diverse componente cu un snapshot al aplicatiei - practic, componentele sunt mockuite si convertite in JSON pentru a le compara cu codul HTML al snapshotului. 
+Testele de UI au rolul de a asigura incarcarea corecta a componentelor aplicatiei si de plasarea fireasca in cadrul paginilor. Aceste teste compara diverse componente cu un snapshot al aplicatiei - practic, componentele sunt mockuite si convertite in JSON pentru a le compara cu codul HTML al snapshotului.
 
 ```JS
   test("Text box component matches snapshot", () => {
@@ -309,7 +313,7 @@ Testele de UI au rolul de a asigura incarcarea corecta a componentelor aplicatie
 
 ### Rularea testelor folosind Jest
 
-In fisierul `package.json` am initializat libraria Jest astfel incat sa caute in folderul `components` testele pentru a le putea rula. 
+In fisierul `package.json` am initializat libraria Jest astfel incat sa caute in folderul `components` testele pentru a le putea rula.
 
 ```JS
   "scripts": {
@@ -370,7 +374,7 @@ test('AC button clears input', () => {
 
     fireEvent.press(acButton);
 
-    // aici, este mockuit butonul dar nu si inputul pentru a verifica daca textul sau este sters 
+    // aici, este mockuit butonul dar nu si inputul pentru a verifica daca textul sau este sters
 
     expect(inputField.props.value).toBe('');
 });
@@ -400,7 +404,7 @@ test('AC button click clears the input', () => {
     await fireEvent.changeText(textInput, "4873789598275");
 
     const button = getByText("AC");
-    await fireEvent.press(button); 
+    await fireEvent.press(button);
 
     expect(textInput.props.value).toEqual('');
 
@@ -441,17 +445,27 @@ test('Home component matches snapshot', () => {
   });
 ```
 
+## Stryker
+
+| File           | % score | # killed | # timeout | # survived | # no cov | # errors |
+| -------------- | ------- | -------- | --------- | ---------- | -------- | -------- |
+| All files      | 83.52   | 146      | 1         | 25         | 4        | 0        |
+| About.js       | 83.33   | 10       | 0         | 1          | 1        | 0        |
+| AboutButton.js | 0.00    | 0        | 0         | 0          | 3        | 0        |
+| Button.js      | 100.00  | 11       | 0         | 0          | 0        | 0        |
+| Home.js        | 82.98   | 116      | 1         | 24         | 0        | 0        |
+| TextBox.js     | 100.00  | 9        | 0         | 0          | 0        | 0        |
 
 ### Bibliografie
 
-|    | Nume autor | Prenume autor | Titlu articol online | URL | Data ultimei accesări |
-|----|------|---------------|----------------------|-----|-----------------------|
-|1|Felice|Sandra|Jest vs Mocha: Comparing NodeJS Unit Testing Frameworks|https://www.browserstack.com/guide/jest-vs-mocha|accesat la 09.04.2024|
-|2|Tozzi|Chris|Comprehensive Comparison for Unit Testing Tools|https://saucelabs.com/resources/blog/jest-vs-mocha|accesat la 09.04.2024|
-|3|-|-|Jest Official Documentation|https://jestjs.io/docs/tutorial-react-native|accesat la 09.04.2024|
-|4|-|-|Mocha Official Documentation|https://github.com/mochajs/mocha|accesat la 09.04.2024|
-|5|Syer|Dave|Unit Testing with Stubs and Mocks|https://spring.io/blog/2007/01/15/unit-testing-with-stubs-and-mocks|accesat la 15.04.2024
-|6|-|-|OpenAI Generated Text| https://chat.openai.com | accesat la 16.04.2024|
-|7|-|-|Gemini Generated Text| https://gemini.google.com | accesat la 16.04.2024|
-|8|-|-|Sinon Testing Library Documentation|https://sinonjs.org/releases/v17/| accesat la 23.04.2024|
-|9|-|-|Jest Snapshot Testing|https://jestjs.io/docs/snapshot-testing| accesat la 8.05.2024|
+|     | Nume autor | Prenume autor | Titlu articol online                                    | URL                                                                 | Data ultimei accesări |
+| --- | ---------- | ------------- | ------------------------------------------------------- | ------------------------------------------------------------------- | --------------------- |
+| 1   | Felice     | Sandra        | Jest vs Mocha: Comparing NodeJS Unit Testing Frameworks | https://www.browserstack.com/guide/jest-vs-mocha                    | accesat la 09.04.2024 |
+| 2   | Tozzi      | Chris         | Comprehensive Comparison for Unit Testing Tools         | https://saucelabs.com/resources/blog/jest-vs-mocha                  | accesat la 09.04.2024 |
+| 3   | -          | -             | Jest Official Documentation                             | https://jestjs.io/docs/tutorial-react-native                        | accesat la 09.04.2024 |
+| 4   | -          | -             | Mocha Official Documentation                            | https://github.com/mochajs/mocha                                    | accesat la 09.04.2024 |
+| 5   | Syer       | Dave          | Unit Testing with Stubs and Mocks                       | https://spring.io/blog/2007/01/15/unit-testing-with-stubs-and-mocks | accesat la 15.04.2024 |
+| 6   | -          | -             | OpenAI Generated Text                                   | https://chat.openai.com                                             | accesat la 16.04.2024 |
+| 7   | -          | -             | Gemini Generated Text                                   | https://gemini.google.com                                           | accesat la 16.04.2024 |
+| 8   | -          | -             | Sinon Testing Library Documentation                     | https://sinonjs.org/releases/v17/                                   | accesat la 23.04.2024 |
+| 9   | -          | -             | Jest Snapshot Testing                                   | https://jestjs.io/docs/snapshot-testing                             | accesat la 8.05.2024  |
