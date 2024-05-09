@@ -5,6 +5,8 @@ import Home from "../Home";
 import Button from "../Button";
 import TextBox from "../TextBox";
 import About from "../About";
+import AboutButton from "../AboutButton";
+import { NavigationContainer } from "@react-navigation/native";
 
 describe("UI Testing Suite", () => {
   test("Text box component matches snapshot", () => {
@@ -95,6 +97,11 @@ describe("UI Testing Suite", () => {
 
   test("About screen matches snapshot", () => {
     const tree = renderer.create(<About />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test("About button matches snapshot", () => {
+    const tree = renderer.create(<NavigationContainer><AboutButton /></NavigationContainer>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
