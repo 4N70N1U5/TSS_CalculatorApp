@@ -347,6 +347,18 @@ Pentru a rula testele, folosim comanda:
 npm test
 ```
 
+### Mutation Testing folosind Stryker
+
+Am folosit unealta Stryker [10] pentru a genera mutatii pentru componentele pe care dorim sa le testam in profunzime - aceste mutatii vor modifica la intamplare parti din componente iar mai apoi va rula testele scrie folosind Jest si va realiza un coverage report nou pentru fiecare componenta.
+
+<img src=".github/images/stryker-report.png" alt="drawing" width="600"/>
+
+In speta, mutation testing ne ajuta sa ne dam seama daca testele trebuie imbunatatite prin mici schimbari aduse componentelor pe care le vom testa. Schimbarile aduse de Stryker nu vor schimba logica de functionare a paginii.
+
+Un exemplu de mutation testing mai in amanunt ar fi aceasta modificare conditionala:
+
+<img src=".github/images/test-mutation.png" alt="drawing" width="600"/>
+
 ### Coverage Report folosind Github Actions
 
 Pentru a obtine un coverage report automat si a rula testele odata cu orice commit/PR realizat pe branchul main, am folosit Github Actions pentru a initializa un workflow de testare automat care sa se actualizeze in timp real dupa eventuale update-uri ale aplicatiei.
@@ -412,7 +424,7 @@ test('AC button click clears the input', () => {
 
 &#x2611; Dupa cum se poate observa in testul generat de ChatGPT, AI-ul a creat un test coerent ca sintaxa, insa functional vorbind butonul AC este triggeruit desi nu se afla nimic in caseta de input - acest lucru va face ca acest test sa treaca intotdeauna. In testul nostru, vom schimba textul casutei de input cu un numar pentru a verifica mai apoi daca se sterge continutul sau. Practic, in testul generat, stergand "nimic" obtinem tot "nimic", iar acest test devine inutil.
 
-&#x2612; Totusi, cel generat de Gemini este arunca o eroare - sintaxa este incorecta - noi nu avem un test id pentru elementul `Button`, si chiar daca am fi avut, gemini il acceseaza incorect prin comanda `getByTestId('ac-button');`. In plus, acesta s-a complicat prin randarea de 2 ori a componentei home cand putea sa mockuiasca strict text boxul.
+&#x2612; Totusi, cel generat de Gemini arunca o eroare - sintaxa este incorecta - noi nu avem un test id pentru elementul `Button`, si chiar daca am fi avut, gemini il acceseaza incorect prin comanda `getByTestId('ac-button');`. In plus, acesta s-a complicat prin randarea de 2 ori a componentei home cand putea sa mockuiasca strict text boxul.
 
 &#x2611; Insa, la capitolul UI Tests stau ceva mai bine, fiind destul de simple intrucat nu trebuie decat sa executam o comparatie intre 2 JSON-uri iar sintaxa Jest e destul de usoara - testele sunt identice iar ChatGPT si Gemini respecta documentatia celor de la Jest dupa care ne-am inspirat in crearea testelor [9]
 
@@ -444,17 +456,6 @@ test('Home component matches snapshot', () => {
   });
 ```
 
-## Stryker
-
-| File           | % score | # killed | # timeout | # survived | # no cov | # errors |
-| -------------- | ------- | -------- | --------- | ---------- | -------- | -------- |
-| All files      | 83.52   | 146      | 1         | 25         | 4        | 0        |
-| About.js       | 83.33   | 10       | 0         | 1          | 1        | 0        |
-| AboutButton.js | 0.00    | 0        | 0         | 0          | 3        | 0        |
-| Button.js      | 100.00  | 11       | 0         | 0          | 0        | 0        |
-| Home.js        | 82.98   | 116      | 1         | 24         | 0        | 0        |
-| TextBox.js     | 100.00  | 9        | 0         | 0          | 0        | 0        |
-
 ### Bibliografie
 
 |     | Nume autor | Prenume autor | Titlu articol online                                    | URL                                                                 | Data ultimei accesări |
@@ -468,3 +469,4 @@ test('Home component matches snapshot', () => {
 | 7   | -          | -             | Gemini Generated Text                                   | https://gemini.google.com                                           | accesat la 16.04.2024 |
 | 8   | -          | -             | Sinon Testing Library Documentation                     | https://sinonjs.org/releases/v17/                                   | accesat la 23.04.2024 |
 | 9   | -          | -             | Jest Snapshot Testing                                   | https://jestjs.io/docs/snapshot-testing                             | accesat la 8.05.2024  |
+| 10  | - | - | Stryker Jest Runner Documentation | https://stryker-mutator.io/docs/stryker-js/jest-runner/ | accesat la 9.05.2024 |
