@@ -473,3 +473,5 @@ test('Home component matches snapshot', () => {
 | 8   | -          | -             | Sinon Testing Library Documentation                     | https://sinonjs.org/releases/v17/                                   | accesat la 23.04.2024 |
 | 9   | -          | -             | Jest Snapshot Testing                                   | https://jestjs.io/docs/snapshot-testing                             | accesat la 8.05.2024  |
 | 10  | - | - | Stryker Jest Runner Documentation | https://stryker-mutator.io/docs/stryker-js/jest-runner/ | accesat la 9.05.2024 |
+
+Aplicatia pentru care am dezvoltat suita de teste a fost preluata de la user-ul _zero7zero5_ de pe GitHub ([link](https://github.com/zero7zero5/React-Native-Calculator-App)) si i s-au adus modificari ulterior.
