@@ -9,6 +9,7 @@
 ### Tema proiectului: **Testarea unei aplicatii mobile**
 
 #### Prezentarea proiectului se poate gasi [aici](Presentation.pdf).
+#### Video Demo se poate gasi [aici (YouTube)](https://youtu.be/F4ZRi4UtS34).
 
 # Jest Coverage Report
 
